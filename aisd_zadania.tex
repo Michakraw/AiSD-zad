@@ -7,29 +7,31 @@
 \usepackage{graphicx}
 \usepackage{caption}
 \usepackage{float}
-\usepackage{sectsty}
-\sectionfont{\Large}
+
+
 
 \begin{document}
 
 \section*{AiSD wszystkie - wersja z dnia \today}
 
 
-\begin{enumerate}
+
 
 \subsection*{Drzewa AVL}
-
-\item[(Zad. 12, 06.2017)] Jak mocno można ograniczyć (w pesymistycznym przypadku) liczbę rotacji podczas usuwania wierzchołka z drzewa AVL o $n$ wierzchołkach? Uzasadnij, że nie da się bardziej niż podałeś(aś).
+\begin{enumerate}
+\item (Zad. 12, 06.2017) Jak mocno można ograniczyć (w pesymistycznym przypadku) liczbę rotacji podczas usuwania wierzchołka z drzewa AVL o $n$ wierzchołkach? Uzasadnij, że nie da się bardziej niż podałeś(aś).
 
 \item (Zad. 19, 06.2016) Jaką największą wysokość może mieć drzewo AVL zawierające 67 kluczy? Odpowiedź uzasadnij.
 
-\item (Zad. 14, 06.2015) Jeśli w drzewach AVL zmienilibyśmy warunek, by poddrzewa mogły różnić się o 2 (nie o 1) wysokością, to czy drzewo n-wierzchołkowe dalej ma wysokość $\Theta(n)$? 
+\item (Zad. 14, 06.2015) Jeśli w drzewach AVL zmienilibyśmy warunek, by poddrzewa mogły różnić się o 2 (nie o 1) wysokością, to Czy drzewo n-wierzchołkowe dalej ma wysokość $\Theta(n)$? 
 
-\subsection*{B-drzewa}
-\subsection*{Drzewa czerwono-czarne}
-\subsection*{Drzewa splay}
+\end{enumerate}
+\subsection*{Reszta do zrobienia}
+\begin{enumerate}
 
-\item (Zad. 1, 06.2017) Opisz algorytm oparty na programowaniu dynamicznym wyznaczający optymalną kolejność mnożenia macierzy. Jaka jest jego złożoność? Jeśli jest to algorytm podany na wykładzie, możesz na tym poprzestać, w przeciwnym razie uzasadnij jego poprawność i złożoność.
+\item(Zad. 1, 06.2017)
+Opisz algorytm oparty na programowaniu dynamicznym wyznaczający optymalną kolejność mnożenia macierzy. Jaka jest jego złożoność? Jeśli jest to algorytm podany na wykładzie, możesz na tym poprzestać, w przeciwnym razie uzasadnij jego poprawność i złożoność.
+
 
 \item (Zad. 2, 06.2017) Ile maksymalnie operacji \textit{join} wykona się podczas łączenia kopców dwumianowych (wersja eager), z których każdy zawiera nie więcej niż 500 elementów? Przypomnienie: operacja \textit{join} łączy dwa drzewa dwumianowe tego samego rzędu.
 \item (Zad. 3, 06.2017) Narysuj 
@@ -39,7 +41,7 @@
  \item drzewo \emph{Splay} po wykonaniu operacji \emph{Splay(n), Splay(n-1)} na drzewie otrzymanym w poprzednim punkcie
  \end{itemize}
 
-\item (Zad. 4, 06.2017) Podaj przykład drzewca (tj. podaj wartość kluczy wraz z przydzielonymi im priorytetami) o n wierzchołkach, w którym każdy wierzchołek wewnętrzny ma tylko prawego syna. Następnie podaj, który wierzchołek będzie wymagał najwięcej rotacji podczas ustawiania go. Ile to będzie rotacji? Odpowiedź uzasadnij.
+\item(Zad. 4, 06.2017) Podaj przykład drzewca (tj. podaj wartość kluczy wraz z przydzielonymi im priorytetami) o n wierzchołkach, w którym każdy wierzchołek wewnętrzny ma tylko prawego syna. Następnie podaj, który wierzchołek będzie wymagał najwięcej rotacji podczas ustawiania go. Ile to będzie rotacji? Odpowiedź uzasadnij.
 
 \item (Zad. 5, 06.2017) Dolną granicę $\lceil \frac{3}{2} n - 2 \rceil $ na liczbę porównań niezbędnych do wyznaczenia \emph{max} i \emph{min} w zbiorze \emph{n} elementów można wykazać stosując grę z adwersarzem. Opisz skuteczną strategię w takiej grze. Jeśli jest to strategia opisana na wykładzie, możesz na tym poprzestać. Jeśli jest to inna strategia, wykaż, że jest skuteczna.
 
