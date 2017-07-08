@@ -1,5 +1,5 @@
-# AiSD-zad-cz1
-Zebrane zadania z części pierwszej egzaminu AiSD
+# O co chodzi?
+Są tu zebrane zadania z egzaminów AiSD, jak narazie tylko z pierwszej części, ale powinny pojawić się tu także zadania z drugiej i trzeciej części. W przyszłości chciałbym, aby pojawiały się rozwiązania. Jeżeli masz zadania z poprzednich lat lub chcesz jakieś rozwiązać - sklonuj repozytorium, dodaj zadania (zachowaj konwencję) i zrób pull request.
 
 # Historia zmian:
 
