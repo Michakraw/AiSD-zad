@@ -1,0 +1,22 @@
+// 3. rotacja w p w lewo
+
+digraph G {
+    graph [ordering="out"];
+    b [label="b(7)"];
+    c [label="c(9)"];
+    h [label="h(6)"];
+    j [label="j(3)"];
+    k [label="k(4)"];
+    p [label="p(8)"];
+    r [label="r(2)"];
+    s [label="s(7)"];
+    t [label="t(1)"];
+    c -> b;
+    c -> s;
+    s -> h;
+    s -> t;
+    h -> k [side=right];
+    k -> j;
+    k -> p;
+    p -> r [side=right];
+}
