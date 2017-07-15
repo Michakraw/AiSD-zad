@@ -68,3 +68,24 @@ Weźmy dowolną permutację powyższych insertów. Rozumowanie indukcyjne.
 
 Stąd wynika, że w najgorszym przypadku będziemy mieli co najwyżej jedną rotację per insert.
 
+
+## Zad. 4, cz. 1, 06.2016
+Narysuj ciąg rotacji, które zostaną wykonane w
+trakcie wykonywania `delete(p)` na poniższym drzewcu. Litery w wierz-
+chołkach drzewca oznaczają klucze, a liczby w nawiasach - priorytety. Ro-
+tacje wypisz w kolejności wykonywania.
+
+### Rozwiązanie
+
+Rotujemy w p w lewo:
+![1](z40616_1_rotacja_lewo.png)
+
+Rotujemy w p w prawo:
+![2](z40616_2_rotacja_prawo.png)
+
+Rotujemy w p w prawo:
+![3](z40616_3_rotacja_prawo.png)
+
+p ma jedno dziecko, więc przepinamy:
+![4](z40616_4_przepiecie.png)
+
