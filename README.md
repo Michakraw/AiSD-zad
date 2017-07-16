@@ -5,5 +5,7 @@ Są tu zebrane zadania z egzaminów AiSD, jak narazie tylko z pierwszej części
 
 07.07.2017 - powstanie, 40 zadań (czerwiec 2016, czerwiec 2017)
 
-08.08.2017 - dodanie kolenych 20 zadań (czerwiec 2015), podzielenie zadań z 1. części na kategorie, dodanie zadań z 3.
+08.07.2017 - dodanie kolenych 20 zadań (czerwiec 2015), podzielenie zadań z 1. części na kategorie, dodanie zadań z 3.
 części z czerwca 2017
+
+16.07.2017 - dodanie rozwiązania do Zad. 19, cz. 1, 06.2016
