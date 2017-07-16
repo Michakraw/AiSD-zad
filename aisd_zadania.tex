@@ -48,6 +48,9 @@
 \item (Zad. 12, cz. 1, 06.2017) Jak mocno można ograniczyć (w pesymistycznym przypadku) liczbę rotacji podczas usuwania wierzchołka z drzewa AVL o $n$ wierzchołkach? Uzasadnij, że nie da się bardziej niż podałeś(aś).
 
 \item (Zad. 19, cz. 1, 06.2016) Jaką największą wysokość może mieć drzewo AVL zawierające 67 kluczy? Odpowiedź uzasadnij.
+\beginsolution
+Zbudujmy drzewo AVL o maksymalnej wysokości przy użyciu jak najmniejszej ilości wierzchołków. Nazwijmy je $T_i$ Dla $T_0 = 0$ będzie to drzewo puste, dla $T_1 = 1$ będzie to drzewo jednoelementowe, dla $T_2 = 2$ będzie to drzewo składające się z korzenia i jednego syna. Dla $T_n$, gdzie $n \geq 3$ będzie to drzewo które składa się z korzenia i dwóch poddrzew, którymi są drzewa o wysokości $T_{n-1}$ oraz $T_{n-2}$. Drzewa te nazywamy drzewami Fibbonacciego. Liczba wierzchołków takiego drzewa to $N_h = N_{h-1} + 1 + N_{h-2}$. W takim razieiczba wierzchołków kolejnych drzew Fibbonacciego to odpowiednio $0, 1, 2, 4, 7, 12, 20, 33, 54, 88, \ldots $. Drzewo o 67 kluczach będzie miało więc maksymalnie wysokość 8, ponieważ, żeby zbudować drzewo AVL o wysokości $9$ potrzeba minimum 88 kluczy. 
+\finishsolution
 
 \item (Zad. 14, cz. 1, 06.2015) Jeśli w drzewach AVL zmienilibyśmy warunek, by poddrzewa mogły różnić się o 2 (nie o 1) wysokością, to Czy drzewo n-wierzchołkowe dalej ma wysokość $\Theta(n)$? 
 
@@ -154,6 +157,7 @@
 \end{figure}
 
 \item (Zad. 8, cz. 1, 06.2015) Przedstaw drzewiec o n wierzchołkach, w którym usunięcie korzenia wymaga $\Omega(\sqrt{n})$ operacji, ew. podaj uzasadnienie dlaczego nie ma takiego drzewca.
+
 
 \end{enumerate}
 
