@@ -328,13 +328,32 @@ Możesz ograniczyć się do rozwiązania dla $n$ mających odpowiednią postać 
 
 
 \section*{Zadania z części 2.}
+
 \begin{enumerate}
 
-\item (Zad. 1, cz. 2, 06.2017)
+\item (Zad. 1, cz. 2, 06.2017) Przypomnijmy problem przechodzenia przez tablicę: \\
+\noindent\textbf{Problem} (Przejście przez tablicę) \\
+\indent \textbf{Dane:} Tablica $\{i,j\}$ liczb nieujemnych $(i=1,\ldots,n; j=1,\ldots,m)$ \\
+\indent \textbf{Wynik:} Ciąg indeksów $i_1, \ldots, i_n$ taki, że $\forall_{j=1,\ldots,m-1} 1 \leq i_j \leq n$ oraz $| i_j - i_{j+1} | \leq 1$ maksymalizujący sumę $\sum_{j=1}^m a_{i_j,j}$ \\~\\
+Ułóż algorytm dla następującego uogólnienia tego problemu: \\
+\noindent\textbf{Problem} \\~\\
+\indent \textbf{Dane:} Tablica $\{ a_{i,j} \} $ liczb nieujemnych $(i=1,\ldots,n; j=1,\ldots,m)$\\
+\indent \textbf{Wynik:} Dla każdych $i,j$ takich, że $i=1,\ldots,n;j=1,\ldots,m$ należy podać największą wartość, po dodaniu której do $a_{i,j}$ wartość rozwiązania \textit{problemu przejścia przez tablicę} nie ulegnie zmianie. \\~\\
 
-\item (Zad. 2, cz. 2, 06.2017)
+\item (Zad. 2, cz. 2, 06.2017) Dla zbiorów $n$ chłopców i $n$ dziewcząt chcemy znaleźć skojarzenia między nimi (tj. zbiór $n$ par (chłopiec, dziewczynka)), które minimalizują średnią różnicę wzrostu w parze. Dokładniej: dane są dwa $n$ - elementowe ciągi liczb naturalnych $C = c_1, c_2,\ldots, c_n$ oraz $D = d_1, d_2, \ldots, d_n$, gdzie $c_i$ jest wzrostem $i$-tego chłopca, a $d_i$ wzrostem $i$-tej dziewczynki (abstrahujemy od rzeczywistości $c_i$ oraz $d_i$ mogą być dowolnie duże). Chcemy znaleźć taką $n$-elementową permutację $\Pi$, że wartość $$\frac{\sum_{i=1}^n | c_i - d_{\Pi(i)}|}{n}$$ jest minimalna. \\
+\begin{itemize}
+\item Rozwiąż następujący algorytm zachłanny: w $i$-tym kroku $(i=1,2,\ldots,n)$ spośród nieskojarzonych jeszcze chłopców i dziewcząt kojarzymy parę o najmniejszej różnicy  wzrostów. Czy ten algorytm jest poprawny? Udowodnij swoje stwierdzenie.
+\item Podaj lepszy algorytm dla tego problemu , tzn. poprawny w przypadku, gdy powyższy jest niepoprawny, bądź, szybszy (i oczywiście poprawny) w przypadku, gdy powyższy jest poprawny. Udowodnij poprawność swojego algorytmu i podaj złożoność.
+\end{itemize}
 
-\item (Zad. 3, cz. 2, 06.2017)
+\item (Zad. 3, cz. 2, 06.2017) Skonstruuj strukturę danych, która umożliwia efektywne wykonywanie następujących operaci na $n$, początkowo wyzerowanych, licznikach: 
+\begin{itemize}
+\item \textit{inc($k$)} - zwiększ o $1$ wartość $k$-tego licznika
+\item \textit{settomax()} - ustaw wszystkie liczniki na maksymalną (w momencie wykonywania tej operacji) wartość licznika
+\item \textit{get($k$)} - wypisz wartość $k$-tego licznika
+
+
+\end{itemize}
 
 
 \end{enumerate}
