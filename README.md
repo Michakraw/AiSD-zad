@@ -11,3 +11,5 @@ części z czerwca 2017
 16.07.2017 - dodanie rozwiązania do Zad. 19, cz. 1, 06.2016
 
 17.07.2017 - dodanie zadań z 2. części z 06.2017
+
+19.07.2017 - dodanie rozwiązania zad. 2 z 2. części z 06.2017
