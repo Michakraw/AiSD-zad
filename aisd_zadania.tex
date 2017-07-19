@@ -346,15 +346,30 @@ Ułóż algorytm dla następującego uogólnienia tego problemu: \\
 \item Podaj lepszy algorytm dla tego problemu , tzn. poprawny w przypadku, gdy powyższy jest niepoprawny, bądź, szybszy (i oczywiście poprawny) w przypadku, gdy powyższy jest poprawny. Udowodnij poprawność swojego algorytmu i podaj złożoność.
 \end{itemize}
 
+\beginsolution
+Najpierw zauważmy, że $n$ w mianowniku jest niezależne od parowania, należy więc znaleźć parowanie które da nam jak najniższą sumę. Rozważmy podany algorytm zachłanny. Weźmy najmniejszy sensowny ciąg, czyli $n=2$ i spróbujmy znaleźć przykład dla którego algorytm jest niepoprawny. Powiedzmy, że $d_1 = 5$, $d_2 = 50$, $c_1 = 53$, a $c_2 = 90$. Podany algorytm musiałby wyliczyć wszystkie różnice między każdym chłopcem i dziewczynką, a następnie wybrać najmniejszą i usunąć daną parę. Wyliczenie wszystkich różnic to koszt $n \times n$, a dodatkowo dla podanego przykładu wynik algorytmu to $|c_1 - d_2| + |d_1 - c_2|  = 3 + 90 = 93$ podczas gdy wybranie innych par, czyli $|d_1 - c_1| + |d_2 - c_2| = 48 + 40 = 88$ da nam niższą sumę. Bez problemu znaleźliśmy więc kontrprzykład dla którego algorytm z zadania nie działa. \\
+Na podstawie podanego algorytmu można zauważyć, że powinno dać się znaleźć mniej kosztowny sposób wybierania oraz trzeba wykazać poprawność wybieranej pary. Poprawne rozwiązanie dla wymyślonego wcześniej przykładu działa dla wyboru najwyższego chłopca i najwyższej dziewczynki, przeanalizujmy czy wybór takiej pary jest optymalny. Załóżmy, że chłopcy dziewczynki zostali ustawieni w dwóch szeregach, takich, że: $ c_1 > c_2 > \ldots > c_n $ oraz $ d_1 > d_2 > \ldots > d_n $, gdzie $c_1$ i $d_1$ to odpowiednio najwyższy chłopiec i dziewczynka. Bez straty ogólności załóżmy, że $c_1 > d_1$ (interesuje nas wartość bezwględna, a chłopcy zazwyczaj są wyżsi niż dziewczynki). Wtedy mogą być następujące przypadki. 
+\begin{itemize}
+\item[1] $ c_1 \geq d_1 \geq c_i \geq d_i $
+\item[2] $ c_1 \geq d_1 \geq d_i \geq c_i $
+\item[3] $ c_1 \geq c_i \geq d_1 \geq d_i $
+\end{itemize}
+gdzie $ 2 \leq i \leq n$.\\
+Wtedy dla kolejnych przypadków należy udowodnić, że $|d_1 - c_1| + |d_i - c_i| \geq |d_1 - c_i| + |d_1 - c_i|$:
+\begin{itemize}
+\item[1] Niech $|c_1 - d_1| = p$, $|d_1 - c_i| = q$, $|c_i - d_i| = r$. Więc $|d_1 - c_1| + |d_i - c_i| = p + r$, natomiast $|d_1 - c_i| + |d_1 - c_i| = q + p + q + r = p + 2q +r$. Czyli dla tego przypadku nierówność jest zachowana.
+\item[2] Niech $|c_1 - d_1| = p$, $|d_1 - d_i| = q$, $|d_i - c_i| = r$. Więc $|d_1 - c_1| + |d_i - c_i| = p + r$, natomiast $|d_1 - c_i| + |d_1 - c_i| = q + r + p + q = p + 2q +r$. Również zachowana.
+\item[3] Niech $|c_1 - c_i| = p$, $|c_i - d_1| = q$, $|d_1 - d_i| = r$. Więc $|d_1 - c_1| + |d_i - c_i| = p + q + q + r$, natomiast $|d_1 - c_i| + |d_1 - c_i| = p + q + r + q = p + 2q + r$. W tym przypadku wybór będzie taki sam, ale na pewno nie będzie gorszy.
+\end{itemize}
+Z powyższego rozumowania wynika, że wybór najwyższej pary da zawsze lepszy lub równy wynik do wyboru innej dowolnej pary. Po wyborze pary mamy zbiory o długości $n-1$ i możemy zastosować algorytm ponownie. Pozostaje problem znalezienia najwyższej pary, możemy to osiągnąć w czasie $O(n \log_n)$ (TODO: czy da się posortować w czasie liniowym?). Dla posortowanego zbioru czas wykonania algorytmu to $O(1) + T(n-1)$ co po rozwiązaniu zależności daje czas $O(n)$. Ostateczny czas działania algorytmu to $O(n \log_n)$ (jeżeli da się kubełkowo to $O(n)$).
+\finishsolution
+
 \item (Zad. 3, cz. 2, 06.2017) Skonstruuj strukturę danych, która umożliwia efektywne wykonywanie następujących operaci na $n$, początkowo wyzerowanych, licznikach: 
 \begin{itemize}
 \item \textit{inc($k$)} - zwiększ o $1$ wartość $k$-tego licznika
 \item \textit{settomax()} - ustaw wszystkie liczniki na maksymalną (w momencie wykonywania tej operacji) wartość licznika
 \item \textit{get($k$)} - wypisz wartość $k$-tego licznika
-
-
 \end{itemize}
-
 
 \end{enumerate}
 
