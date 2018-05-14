@@ -13,3 +13,5 @@ części z czerwca 2017
 17.07.2017 - dodanie zadań z 2. części z 06.2017
 
 19.07.2017 - dodanie rozwiązania zad. 2 z 2. części z 06.2017
+
+14.05.2018 - dodanie zadań z 1. części z 09.2017
