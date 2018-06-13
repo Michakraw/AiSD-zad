@@ -9,7 +9,7 @@
 \usepackage{float}
 
 \newcommand{\beginsolution}{\textbf{\\~\\ \textbf{Rozwiązanie:} \\~\\}}
-\newcommand{\finishsolution}{\\~\\ \noindent\rule{11cm}{0.4pt}}
+\newcommand{\finishsolution}{~\\~\\ \noindent\rule{11cm}{0.4pt}}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -282,13 +282,19 @@ PROBLEM: \\
 
 \begin{enumerate}
 
-\item (Zad. 2, cz. 1, 09.2017) O ile moż zmienić się liczba drzew w kopcu Fibonacciego, zawierającym $n$ kluczy, podczas wykonywania operacji $decreasekey(k,\Delta)$?
+\item (Zad. 2, cz. 1, 09.2017) O ile może zmienić się liczba drzew w kopcu Fibonacciego, zawierającym $n$ kluczy, podczas wykonywania operacji $decreasekey(k,\Delta)$?
 
 \item (Zad. 13, cz. 1, 09.2017) Opisz w jaki sposób wykonywana jest operacja \textit{deletemin} na kopcu dwumianowym (w wersji lazy). Jaki jest jej koszt?
 
 \item (Zad. 2, cz. 1, 06.2017) Ile maksymalnie operacji \textit{join} wykona się podczas łączenia kopców dwumianowych (wersja eager), z których każdy zawiera nie więcej niż 500 elementów? Przypomnienie: operacja \textit{join} łączy dwa drzewa dwumianowe tego samego rzędu.
 
-\item (Zad. 13, cz. 1, 06.2017) Niech $T_{1}$ oznacza najmniejsze pod względem liczby wierzchołków drzewo o rzędzie $i$, które może zawierać kopiec Fibonacciego. Narysuj drzewa $T_{i}$, dla $i = 0,1,\ldots,6$.
+\beginsolution
+Kopiec dwumianowy składa się ze zbioru pełnych drzew Fibonacciego, w którym nie może być dwóch drzew tego samego rzędu. Drzewu rzędu $0$ ma jeden wierzchołek, drzewo rzędu $1$ ma dwa wierzchołki, drzewo rzędu $k$ ma $2^k$ wierzchołków. Największym drzewem Fibonacciego, które mogłoby się znaleźć w kopcu o $500$ elementach jest $B_8$, które ma 256 wierzchołków. Jednak nie możemy wtedy posiadać w kopcu wszystkich mniejszych, drzew Fibonacciego, gdyż suma ich wierzchołków wynosiłaby $511$. Zapisując liczbę drzew w kopcu jak liczbę binarną ($1$ - występuje drzewo o danym rozmiarze, $0$ - nie występuje) możemy zauważyć, że liczba operacji \textit{join} jest równa przenoszeniu jedynki podczas dodawania dwóch takich liczb. Weźmy więc kopiec o $385$ wierzchołkach, jego zapis binarny będzie wyglądał następująco 110000001. Dodajmy do tego drzewo binarne o $255$ wierzchołkach, którego zapis binarny wygląda następujaco 011111111. Wtedy podczas połączenia tych dwóch kopców będziemy przenosić jedynkę (czyli wykonywać operację join) $9$ razy. Więcej operacji nie możemy wykonać, ponieważ drzewo $B_9$ posiada 512 wierzchołków i nie mieści się w podanym zakresie.
+
+
+\finishsolution
+
+\item (Zad. 13, cz. 1, 06.2017) Niech $T_{i}$ oznacza najmniejsze pod względem liczby wierzchołków drzewo o rzędzie $i$, które może zawierać kopiec Fibonacciego. Narysuj drzewa $T_{i}$, dla $i = 0,1,\ldots,6$.
 
 \item (Zad. 1, cz. 1, 06.2016) W jakim czasie można wykonać operację succ(x) w:
 \begin{itemize}
@@ -297,15 +303,63 @@ PROBLEM: \\
 \item kopcu Fibonacciego,
 \end{itemize}
 która znajduje następnik klucza znajdującego się w wierzchołku o adresie x? Przez następnik klucza $k$ rozumiemy najmniejszy występujący w kopcu klucz $k\textprime$ taki, że $k\textprime$ taki, że $ k\textprime > k$. Jeśli$k$ jest największym kluczem w kopcu, to $k\textprime = \infty$. Możesz założyć, że wszystkie klucze w kopc są unikalne. Odpowiedź uzasadnij.
+
 \item (Zad. 17, cz. 1, 06.2016) Napisz w pseudokodzie szybką procedurę budowy kopca. W jakim czasie działa ta procedura?
+
+\beginsolution 
+buduj_kopiec(K) \\
+for $i=\lfloor\frac{n}{2}\rfloor$ to $1$ \\
+\textit{przesun-w-dol($K$,$i$)} 
+
+Dla uproszczenia ustalmy, że $n$ jest postaci $2^k$.
+Kopiec budujemy od dołu, ma on wysokość $log(n)$. Zaczynamy od rzędu $log(n)-1$, który ma $\frac{n}{4}$ wierzchołków. Budujemy więc $\frac{n}{4}$ kopców o wysokości 2, przesuniemy więc wierchołek maksymalnie o $1$ w dół. Operacja przesuń niżej wykonuje $2$ porównania, co daje nam w sumie $\frac{n}{4} \times 2 \times 1 = \frac{n}{2}$ porównań. Następny poziom $log(n)-2$ ma $\frac{n}{8}$ wierzchołków. Podstruktura kopca jest zachowana, więc jedynym miejscem, które trzeba naprawić jest korzeń. Liczbę znajdującą się w korzeniu przesuniemy maksymalnie o dwa poziomy, co daje nam $\frac{n}{8} \times 2 \times 2 = \frac{n}{2}$ porównań. Przy pierwszym poziomie wykonamy maksymalnie $2 \times log(n)$ porównań dla jednego wierzchołka. Całość da nam złożoność $\Theta(n)$
+\finishsolution
 
 \item (Zad. 18, cz. 1, 06.2016) Wyjaśnij, na czym polega operacja kaskadowego odcinania w kopcu Fibonacciego.
 
+\beginsolution
+Kaskadowe odcięcie polega na odcięciu wierzchołka $p$ z kopca $h$. Odcinamy poddrzewo z korzeniem $p$ z kopca i dołączamy do listy drzew kopca. Następnie sprawdzamy czy ojciec $p$, nazwijmy go $p'$ utracił już jakiegoś syna. Jeżeli tak, to odcinamy również $p'$ i rekurencyjnie sprawdzamy jego ojca, aż znajdziemy wierzchołek, który nigdy nie stracił syna, lub korzeń. Jeżeli $p'$ nigdy nie stracił syna, to zapamiętamy informację o utracie syna.
+\finishsolution
+
 \item (Zad. 10, cz. 1, 06.2015) Ile jest maksymalnie drzew w kopcu:
+\begin{itemize}
+	\item Fibonacciego,
+	\item dwumianowym.
+\end{itemize}
 
-\item (Zad. 11, cz. 1, 06.2015) Złożoność procedury budującej kopiec (wersja z przesun-do-gory()).
+\beginsolution
+\begin{itemize}
+	\item Redukcja liczby drzew wykonuje się dopiero podczas operacji \textit{deletemin}. Operacja insert dodaje drzewo Fibonacciego rozmiaru 0 (jednowierzchołkowe). Stąd maksymalna liczba drzew Fibonacciego dla $n$-elementowego kopca będzie wynosić $n$
+	\item W wersji lazy będzie tak samo jak w kopcu Fibonacciego. W wersji Eager może zawierać maksymalnie $O(log(n))$ drzew, którymi będą kolejne pełne drzewa Fibonacciego.
+\end{itemize}
 
-\item (Zad. 17, cz. 1, 06.2015) Porównanie kosztów operacji { min, delmin, insert, meld } dla kopców dwumianowych w wersji Lazy i Eager.
+\finishsolution
+
+\item (Zad. 11, cz. 1, 06.2015) Złożoność procedury budującej kopiec (wersja z \textit{przesun-do-gory()}).
+
+\beginsolution 
+Operacja \textit{przesun-do-gory()} kosztuje nas $O(log(n))$. Kopiec rozszerzamy od $1$-elementowego do $n$-elementowego, stąd $O(n log(n))$
+
+\finishsolution
+
+\item (Zad. 17, cz. 1, 06.2015) Porównanie kosztów operacji { findmin, delmin, insert, meld } dla kopców dwumianowych w wersji Lazy i Eager.
+
+\beginsolution
+Eager: \\
+\begin{itemize}
+	\item \textit{findmin} - trzymamy przy kopcu wskaźnik MIN wskazujący minimalny element. Koszt $O(1)$. 
+	\item \textit{meld} - przywracamy strukturę kopca natychmiast. Drzewa kopca dostępne są przez tablicę wskaźników. Każdy kopiec zawiera co najwyżej jedno drzewo każdego rzędu. Kopiec zawierający n elementów składa się z co najwyżej $log(n)$ różnych drzew dwumianowych. Koszt $O(log(n))$.
+	\item \textit{deletemin} - wskaźnik MIN wskazuje na drzewo dwumianowe $B$, które zawiera najmniejszy element. Usunięcie $B$ to czas stały, otrzymujemy zbiór drzew $B_0$, $B_1$, $B_{d(B)-1}$, który tworzy nowy kopiec dwumianowy. Łączymy kopce za pomocą operacji meld. Koszt $O(log(n))$.
+	\item \textit{insert} - TODO $O(1)$ zamortyzowany
+\end{itemize}
+Lazy : \\
+\begin{itemize}
+	\item \textit{findmin} - tak jak w Eager $O(1)$
+	\item \textit{meld} - Drzewa kopca przechowywane są jako lista cykliczna, dwukierunkowa. Łączymy dwie listy i aktualizujemy wskaźnik MIN. Czas $O(1)$, ale nie zachowujemy struktury kopca i możemy mieć kilka drzewa tego samego rozmiaru
+	\item \textit{insert} - czas $O(1)$ tworzymy nowe drzewo i dodajemy, ew. aktualizujemy wskaźnik MIN
+	\item \textit {deletemin} Pojedyncza operacja \textit{deletemin} może kosztować nawet $O(n)$ (gdy kopiec składa się z drzew jednoelementowych). Czas zamortyzowany można ograniczyć przez $O(log(n))$. Analiza w notatkach.
+\end{itemize}
+\finishsolution
 
 \item (Zad. 18, cz. 1, 06.2015) 
 \begin{itemize}
@@ -313,6 +367,16 @@ która znajduje następnik klucza znajdującego się w wierzchołku o adresie x?
 	\item Podaj górne ograniczenie na ten rząd, 
 	\item Podaj ideę dowodu tego ograniczenia. 
 \end{itemize}
+
+\beginsolution
+\begin{itemize}
+	\item $r$ - korzeń, $d$ - rząd, $T$ - drzewo 
+	$d(T) = d(r(T))$, gdzie $r(x) = $ liczba dzieci $x$-a
+	\item $O(log(n))$ 
+	\item TODO: w notatkach.
+\end{itemize} 
+
+\finishsolution
 
 \end{enumerate}
 

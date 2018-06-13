@@ -15,3 +15,11 @@ części z czerwca 2017
 19.07.2017 - dodanie rozwiązania zad. 2 z 2. części z 06.2017
 
 14.05.2018 - dodanie zadań z 1. części z 09.2017
+
+14.06.2018 - dodanie rozwiązania 
+ * zad. 18, cz. 1, 06.2015
+ * zad. 17, cz. 1, 06.2015 (bez insert eager)
+ * zad. 11, cz. 1, 06.2015
+ * zad. 10, cz. 1, 06.2015
+ * zad. 17, cz. 1, 06.2016
+ * zad. 2, cz. 1, 06.2017
